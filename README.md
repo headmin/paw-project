@@ -24,7 +24,7 @@ This solution enhances IT teams' visibility into privilege usage patterns across
 
 ### Quick Setup: One-Click Deploy Button
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/headmin/paw-test)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/headmin/paw-project)
 
 ⚠️ **Note**: The deploy button does not automatically manage the initial schema migration for the database (D1). An additional GitHub Actions workflow must be prepared after the initial "Deploy to Cloudflare" deployment by following the further setup instructions in [`deployment-notes.md`](deployment-notes.md).
 
