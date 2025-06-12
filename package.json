@@ -1,0 +1,27 @@
+{
+  "name": "paw-project",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate-token": "bash scripts/generate-token.sh",
+    "build": "tsc && wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "db:migrations:apply": "wrangler d1 migrations apply privileges-db"
+  },
+  "dependencies": {
+    "@hono/swagger-ui": "^0.5.2",
+    "@hono/zod-openapi": "^0.19.8",
+    "@hono/zod-validator": "^0.4.3",
+    "hono": "^4.7.11",
+    "hono-openapi": "^0.4.8",
+    "toml": "^3.0.0",
+    "zod": "^3.24.3",
+    "zod-openapi": "^4.2.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250607.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^4.19.1"
+  }
+}

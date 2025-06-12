@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Editor directories and files
+.idea/
+.vscode/*
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+
+# Package manager specific
+.npm/
+.yarn/*
+.env.example
+.secrets/
+scripts/*

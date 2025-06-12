@@ -1,0 +1,59 @@
+name: Apply D1 Migrations and Configure Secrets
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate-and-configure:
+    runs-on: ubuntu-latest
+    name: Apply D1 Migrations and Set Secrets
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Wrangler
+        run: npm install -g wrangler@latest
+      
+      - name: Apply D1 migrations
+        run: |
+          # Extract database ID using a more reliable method for TOML arrays
+          DB_ID=$(grep -A 4 '^\[\[d1_databases\]\]' wrangler.toml | grep 'database_id' | cut -d '"' -f 2)
+          echo "Using database ID from wrangler.toml: $DB_ID"
+          
+          echo "Applying migrations to paw-project-new"
+          wrangler d1 migrations apply paw-project-new --remote
+          wrangler d1 migrations list paw-project-new --remote
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: false
+      
+      - name: Configure API Token Secret
+        run: |
+          if [ -n "$API_TOKEN" ]; then
+            echo "Setting API_TOKEN secret in Cloudflare Worker"
+            echo "$API_TOKEN" | wrangler secret put API_TOKEN 
+          else
+            echo "::error::API_TOKEN secret is not configured"
+            exit 1
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          API_TOKEN: ${{ secrets.API_TOKEN }}
+          WRANGLER_SEND_METRICS: false
+      
+      - name: Configuration Summary
+        run: |
+          echo "✅ D1 migrations applied successfully"
+          echo "🔑 API_TOKEN secret configured in Cloudflare Worker"

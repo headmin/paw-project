@@ -1,0 +1,25 @@
+name = "paw-project-new"
+main = "src/index.ts"
+compatibility_date = "2025-04-15"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 database configuration
+[[d1_databases]]
+binding = "DB"
+database_name = "paw-project-db-new"
+database_id = ""
+migrations_dir = "migrations"
+
+# Production environment configuration  
+[env.production]
+vars = { ENVIRONMENT = "production", ENABLE_DELETE_ENDPOINT = "false", ALLOWED_ORIGINS = "https://paw-project.example.com" }
+# Custom domain for production
+routes = [
+  { pattern = "paw-project.example.com", custom_domain = false }
+]
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "paw-project-db-new"
+database_id = ""
+migrations_dir = "migrations"
