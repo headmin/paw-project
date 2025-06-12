@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+
+<!--
+Copyright 2019-2020 SAP SE
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadContent</key>
+			<dict>
+				<key>corp.sap.privileges</key>
+				<dict>
+					<key>Forced</key>
+					<array>
+						<dict>
+							<key>mcx_preference_settings</key>
+							<dict>
+  								<key>ReasonRequired</key>
+									<true/>
+
+									<!--
+                                    	key:    ReasonMinLength
+                                    	value:  a positive integer below 255
+                                    
+                                    	If "ReasonRequired" is set to true, this key specifies the minimum
+                                    	number of characters the user has to enter as the reason for becoming an
+                                    	admin. If not set, the value defaults to 10. If a value < 1 is specified
+                                    	or if "ReasonMinLength" is > 254, the value is set to default.
+                                -->
+									<key>ReasonMinLength</key>
+									<integer>10</integer>
+
+									<!--
+                                    	key:    ReasonMaxLength
+                                    	value:  a positive integer <= 250
+                                    
+                                    	If "ReasonRequired" is set to true, this key specifies the maximum
+                                    	number of characters the user can enter as the reason for becoming an
+                                    	admin. If not set, the value defaults to 250. If a value > 250 is
+                                    	specified or if "ReasonMaxLength" is <= "ReasonMinLength", the value is
+                                    	set to default.
+                                -->
+									<key>ReasonMaxLength</key>
+									<integer>50</integer>
+
+									<!--
+                                    	key:    ReasonPresetList
+                                    	value:  an array of dictionaries
+                                    
+                                    	If "ReasonRequired" is set to true, this key allows to pre-define a list
+                                    	of possible reasons (for becoming an admin) the user can choose from. If
+                                    	set, an additional pop-up menu will appear in the dialog box. This only
+                                    	works for the GUI version of Privileges.
+				-->
+								<key>ReasonPresetList</key>
+								<array>
+									<dict>
+										<key>default</key>
+										<string>Just need to be admin, but while running offline</string>
+									</dict>
+									<dict>
+										<key>default</key>
+										<string>For installing software</string>
+									</dict>
+									<dict>
+										<key>default</key>
+										<string>For adjusting system settings</string>
+									</dict>
+									<dict>
+										<key>default</key>
+										<string>Just need to be admin while I'm online</string>
+									</dict>
+								</array>
+                                <key>RemoteLogging</key>
+								<dict>
+									<key>ServerType</key>
+									<string>webhook</string>
+									<key>ServerAddress</key>
+									<string>https://paw-project.example.com/api/v1/webhooks</string> <!-- Chnage to URL / FQDN of your deplyed service --> 
+									<key>WebhookCustomData</key>
+                                    <dict>
+                                        <key>serial</key>
+                                        <string>XYZ1234567</string> <!-- Use Jamf Pro variable $SERIALNUMBER --> 
+                                        <key>name</key>
+                                        <string>Awesome Mac</string> <!-- Use Jamf Pro variable $COMPUTERNAME -->
+										<key>device_id</key>
+										<string>12345</string> <!-- Use Jamf Pro variable  $JSSID -->
+                                    </dict>
+                                    <key>QueueUnsentEvents</key>
+									<true/>
+									<key>QueuedEventsMax</key>
+                                    <integer>50</integer>
+								</dict>
+								
+							</dict>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+			<key>PayloadDescription</key>
+			<string/>
+			<key>PayloadDisplayName</key>
+			<string>Privileges configuration</string>
+			<key>PayloadEnabled</key>
+			<true/>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.ManagedClient.preferences.36132147-235E-4663-ADA8-2664C67C4DD2</string>
+			<key>PayloadOrganization</key>
+			<string>SAP SE</string>
+			<key>PayloadType</key>
+			<string>com.apple.ManagedClient.preferences</string>
+			<key>PayloadUUID</key>
+			<string>36132147-235E-4663-ADA8-2664C67C4DD2</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Configure Privileges app.</string>
+	<key>PayloadDisplayName</key>
+	<string>Privileges configuration</string>
+	<key>PayloadEnabled</key>
+	<true/>
+	<key>PayloadIdentifier</key>
+	<string>CF401A42-35CA-4DA6-9123-5A49C87ECB5A</string>
+	<key>PayloadOrganization</key>
+	<string>SAP SE</string>
+	<key>PayloadRemovalDisallowed</key>
+	<true/>
+	<key>PayloadScope</key>
+	<string>System</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>50870D16-7AAD-478B-BFFE-BED09499F7E0</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
