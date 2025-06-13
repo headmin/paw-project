@@ -1,4 +1,4 @@
-# PAW - Project
+# PAW - Project (PREVIEW)
 🐾 **PAW** stands for **Privileges Audit Worker**.
 
 This project extends the widely-popular SAP Privileges application ([SAP macOS-enterprise-privileges](https://github.com/SAP/macOS-enterprise-privileges)) by providing a centralized audit logging and analytics service API in the cloud, specifically designed to facilitate common enterprise macOS deployments that operate under audit scrutiny.
