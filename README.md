@@ -13,13 +13,13 @@ Client-certificate secured webhooks from macOS devices running Privileges.app pu
 -   **Advanced Analytics**: Query webhook data with flexible filtering, pagination, and field selection, optimized for business intelligence tools and reporting systems.
 -   **Summary Statistics**: Access pre-built analytics endpoints that provide event counts by type, identify top users by privilege requests, highlight the most common escalation reasons, and reveal trends over time.
 -   **Multi-format Export**: Generate exports in CSV and JSON formats, allowing customization of time periods and event filtering for compliance reporting and data analysis.
--   **Token-based Security**: A robust API authentication system featuring role-based permissions and token management.
--   **Contextual Data**: Automatically extracts client version, platform details, and custom device telemetry.
+-   **Token-based Security**: A robust API authentication system featuring time-based token management.
+-   **Contextual Data**: Automatically extracts client version, platform details, and custom device info along with event telemetry.
 
-This solution enhances IT teams' visibility into privilege usage patterns across their macOS fleet, ensuring security compliance, identifying improvement opportunities, and generating detailed audit reports. It's especially beneficial for meeting stringent governance requirements, such as UK Cyber Essentials and other regulatory standards.
+The PAW API aids IT teams in enhancing visibility into privilege usage patterns across their macOS fleet. It ensures security compliance with an “admin by request” approach, identifies opportunities for improvement, and generates detailed audit reports for legal purposes. This is particularly beneficial for meeting stringent governance requirements, such as UK Cyber Essentials and other high regulatory standards.
 
 
-More information about mutual TLS can be found in a session titled "What about mutual TLS?" available at the following link: [MacSysAdmin Conference 2021 - What about mutual TLS?](https://docs.macsysadmin.se/2021/video/Day2Session4.mp4).
+More information about details of how mutual TLS works can be examined in a session titled "What about mutual TLS?" available at the following link: [MacSysAdmin Conference 2021 - What about mutual TLS?](https://docs.macsysadmin.se/2021/video/Day2Session4.mp4).
 
 
 ## Deploy to Cloudflare
