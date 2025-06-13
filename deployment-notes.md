@@ -275,23 +275,7 @@ After successful deployment, verify everything is working:
 - Regularly check Worker metrics for performance issues
 - Review security logs for suspicious activity
 
-## Local Development Setup
-
-For local development and testing, set up your environment:
-
-### Prerequisites
-```bash
-# Check your Node.js version (must be v20.0.0+)
-node --version
-
-# Install/update Wrangler globally
-npm install -g wrangler@latest
-
-# Verify Wrangler version (must be v4.19.0+)
-wrangler --version
-```
-
-### Local Environment Setup
+### Local Environment Setup (for PRs)
 1. **Clone the repository** (if developing locally)
 2. **Install dependencies**: `npm install`
 3. **Login to Cloudflare**: `wrangler login`
@@ -305,26 +289,14 @@ wrangler --version
 - **[Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)**: Official Workers docs
 - **[Wrangler CLI Reference](https://developers.cloudflare.com/workers/wrangler/)**: Command-line tool documentation
 - **[GitHub Actions Documentation](https://docs.github.com/actions)**: CI/CD automation guide
+- **[What about mutual TLS? - MacSysAdmin 2021 Conference](https://docs.macsysadmin.se/2021/video/Day2Session4.mp4)**
+
+
 
 ### Getting Help
 - **Cloudflare Community**: [community.cloudflare.com](https://community.cloudflare.com/)
 - **GitHub Issues**: Report problems in your repository's Issues tab
 - **Cloudflare Support**: Available for Pro/Business/Enterprise accounts
-
-### Common Commands
-```bash
-# Check deployment status
-wrangler status
-
-# View live logs
-wrangler tail
-
-# List your Workers
-wrangler list
-
-# Update Worker settings
-wrangler edit
-```
 
 ---
 
