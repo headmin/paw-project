@@ -17,6 +17,9 @@ Client-certificate secured webhooks from macOS devices running Privileges.app pu
 This solution enhances IT teams' visibility into privilege usage patterns across their macOS fleet, ensuring security compliance, identifying improvement opportunities, and generating detailed audit reports. It's especially beneficial for meeting stringent governance requirements, such as UK Cyber Essentials and other regulatory standards.
 
 
+More information about mutual TLS can be found in a session titled "What about mutual TLS?" available at the following link: [MacSysAdmin Conference 2021 - What about mutual TLS?](https://docs.macsysadmin.se/2021/video/Day2Session4.mp4).
+
+
 ## Deploy to Cloudflare
 
 ### Quick Setup: One-Click Deploy Button
